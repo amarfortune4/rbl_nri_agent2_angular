@@ -1,0 +1,58 @@
+
+   
+   <!-- ========== Left Sidebar Start ========== -->
+   <div class="left side-menu">
+    
+    <!-- LOGO -->
+    <div class="topbar-left">
+        <div class="">
+            <!--<a href="index.html" class="logo text-center">Fonik</a>-->
+            <!--<a href="index.html" class="logo"><img src="assets/images/logo.png" height="20" alt="logo"></a>-->
+            <span class="logo-text">RBL Logo</span>
+        </div>
+    </div>
+
+    <div class="sidebar-inner slimscrollleft">
+        <div id="sidebar-menu">
+            <ul>
+                
+
+                <li>
+                    <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active"  class="waves-effect"><i class="dripicons-device-desktop"></i><span> dashboard </span></a>
+                </li>
+                 <!-----Starts-Manage RBL IT Team-Sidebar Router-------------------> 
+                <li [class]="activeClass1"  (click)="getClassActive(1)">
+                    <a  class="waves-effect"><i class="ion-person-stalker"></i><span>Leads<span class="float-right"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="list-unstyled">
+                        <li><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active">New Leads</a></li>
+                        <li><a [routerLink]="['/dashboard/process-leads']" routerLinkActive="router-link-active" >Leads Under Process</a></li>
+                        <li><a [routerLink]="['/dashboard/a']" routerLinkActive="router-link-active">Reviewed Leads</a></li>
+                        <li><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Approved/Closed leads</a></li>
+                        <li><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Rejected/Drop Off leads</a></li>
+                    
+                    </ul>
+                </li>
+                <!-----Ends-Manage RBL IT Team-Sidebar Router-------------------> 
+
+                <!-----Starts-Manage Agents Sidebar Router-------------------> 
+                <li [class]="activeClass2"  (click)="getClassActive(2)">
+                    <a  class="waves-effect"><i class="ion-person-stalker"></i><span>Reports<span class="float-right"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="list-unstyled">
+                        <li><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Report 1</a></li>
+                        <li><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Report 2</a></li>
+                        
+                    </ul>
+                </li>
+                <!-----Ends-Manage Agents Sidebar Router-------------------> 
+
+                        
+                
+              
+               
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div> <!-- end sidebarinner -->
+</div>
+<!-- Left Sidebar End -->
+

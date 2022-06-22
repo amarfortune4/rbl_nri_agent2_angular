@@ -1,0 +1,180 @@
+<div class="wrapper-page">
+    <div class="">
+      <!---start row----->
+      <div class="card m-b-40">
+        <div class="card-body">
+  
+          <!--Starts-Form Title--->
+          <div class="form-title">
+            <h1 class="mt-0 card-title text-primary font-weight-bold text-center">
+              Welcome to Agent Register
+            </h1>
+            <p class="mt-0 card-title text-secondary font-weight-bold">
+              
+            </p>
+          </div>
+          <!--Ends-Form Title--->
+  
+  
+          <form [formGroup]="form" (ngSubmit)="submitLogin()">
+  
+           
+
+            <!----------Starts FIrst Name-------->
+            <div class="form-group">
+              <label>First Name</label>
+              <div>
+                <input
+                  type="text"
+                  class="form-control"
+                  parsley-type="First Name"
+                  placeholder="Enter First Name"
+                  formControlName="firstName"
+                
+                  required
+                  />
+              </div>
+              <label *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" >
+                <span *ngIf="firstName.errors?.required" class="text-danger">First Name ID is required.</span>
+
+            </label>
+            
+  
+  
+            </div>
+            <!----------Ends FIrst Name-------->
+
+
+            <!----------Starts Middle Name-------->
+            <div class="form-group">
+              <label>Middle Name</label>
+              <div>
+                <input
+                  type="text"
+                  class="form-control"
+                  parsley-type="Middle Name"
+                  placeholder="Enter Middle Name"
+                  formControlName="middleName"
+                  required
+                  />
+              </div>
+              <label *ngIf="middleName.invalid && (middleName.dirty || middleName.touched)" >
+                <span *ngIf="middleName.errors?.required" class="text-danger">Middle Name ID is required.</span>
+
+            </label>
+            
+            </div>
+            <!----------Ends Middle Name-------->
+
+
+            <!----------Starts Last Name-------->
+            <div class="form-group">
+              <label>Last Name</label>
+              <div>
+                <input
+                  type="text"
+                  class="form-control"
+                  parsley-type="Last Name"
+                  placeholder="Enter Last Name"
+                  formControlName="lastName"
+                  required
+                  />
+              </div>
+              <label *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" >
+                <span *ngIf="lastName.errors?.required" class="text-danger">Last Name ID is required.</span>
+
+            </label>
+            
+            </div>
+            <!----------Ends Last Name-------->
+
+
+
+            <!----------Starts Mobile Number-------->
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <div>
+                <input
+                  type="text"
+                  class="form-control"
+                  parsley-type="Mobile Number"
+                  placeholder="Enter Mobile Number"
+                  formControlName="mobileNo"
+                  required
+                  />
+              </div>
+              <label *ngIf="mobileNo.invalid && (mobileNo.dirty || mobileNo.touched)" >
+                <span *ngIf="mobileNo.errors?.required" class="text-danger">Mobile Number ID is required.</span>
+
+            </label>
+            
+            </div>
+            <!----------Ends Mobile Number-------->
+
+
+
+             <!----------Starts Email--------->
+             <div class="form-group">
+              <label>EmailID</label>
+              <div>
+                <input
+                  type="email"
+                  class="form-control"
+                  parsley-type="Username"
+                  placeholder="Enter Username"
+                  formControlName="username"
+                  required
+                  />
+              </div>
+              <label *ngIf="username.invalid && (username.dirty || username.touched)" >
+                <span *ngIf="username.errors?.required" class="text-danger">Email ID is required.</span>
+                <span *ngIf="username.errors?.pattern" class="text-danger">Please enter valid emailID.</span>
+            </label>
+            
+  
+  
+            </div>
+            <!----------Ends Email--------->
+
+
+  
+            
+  
+  
+            <!-----------Login Failed Msg starts-------------->
+            <label *ngIf="loginFailedErrMsg!==''" >
+              <span  class="text-danger">{{loginFailedErrMsg}}</span>
+            </label>
+            <!-----------Login Failed Msg ends-------------->
+  
+  
+  
+            <!----------Starts Login submit--------->
+            <div class="form-group">
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-block waves-effect waves-light"
+                  [disabled]="!form.valid"
+                  >
+                  Login
+                </button>
+                <!-------<a data-toggle="modal" data-target="#myModal"> Forgot Password ?</a>--->
+              </div>
+            </div>
+            <!----------Starts Login submit--------->
+          </form>
+             
+        </div>
+      </div>
+  
+  
+     
+  
+  
+  
+     
+      <!-- end row -->
+    </div>
+    <!-- container -->
+  </div>

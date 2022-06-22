@@ -1,0 +1,130 @@
+<ng-container *ngIf="roleID===3">
+    <div class="row row-deck row-cards">
+        <div class="col-sm-6 col-lg-3">
+            <a class="lead-count-box" [routerLink]="['/dashboard/new-leads']">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="subheader">New Leads</div>
+                        </div>
+                        <div class="h1 mb-3">{{newLeads}}</div>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar bg-blue" style="width: 100%" role="progressbar" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="100" aria-label="100% Complete">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a class="lead-count-box" [routerLink]="['/dashboard/process-leads']">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="subheader">Leads Under Process Leads</div>
+                        </div>
+                        <div class="h1 mb-3">{{leadsUnderProcess}}</div>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar bg-blue" style="width: 100%" role="progressbar" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="100" aria-label="100% Complete">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a class="lead-count-box" [routerLink]="['/dashboard/review-leads']">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="subheader">Reviewed Leads</div>
+                        </div>
+                        <div class="h1 mb-3">{{reviewedLeads}}</div>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar bg-blue" style="width: 100%" role="progressbar" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="100" aria-label="100% Complete">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="roleID===2">
+    <div class="row row-deck row-cards">
+        <div class="col-sm-6 col-lg-3">
+            <a class="lead-count-box" [routerLink]="['/dashboard/process-leads']">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="subheader">New Leads</div>
+                        </div>
+                        <div class="h1 mb-3">{{superAgentNewLeadsList}}</div>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar bg-blue" style="width: 100%" role="progressbar" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="100" aria-label="100% Complete">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a class="lead-count-box" [routerLink]="['/dashboard/review-leads']">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="subheader">Assigned Leads</div>
+                        </div>
+                        <div class="h1 mb-3">{{reviewedLeads}}</div>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar bg-blue" style="width: 100%" role="progressbar" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="100" aria-label="100% Complete">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+</ng-container>
+
+<!-- 
+<div class="row">
+
+    <div class="col-lg-4">
+        <a [routerLink]="['/dashboard/new-leads']" routerLinkActive="router-link-active">
+            <div class="card m-b-30 card-body text-center">
+                <h1 class="card-title font-20 mt-0">New Leads {{newLeads}}</h1>
+                <p class="card-text"></p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-lg-4">
+        <a [routerLink]="['/dashboard/process-leads']" routerLinkActive="router-link-active">
+            <div class="card m-b-30 card-body text-center">
+                <h1 class="card-title font-20 mt-0">Leads Under Process Leads {{leadsUnderProcess}}</h1>
+                <p class="card-text"></p>
+            </div>
+        </a>
+    </div>
+
+
+
+    <div class="col-lg-4">
+        <a [routerLink]="['/dashboard/review-leads']" routerLinkActive="router-link-active">
+            <div class="card m-b-30 card-body text-center">
+                <h1 class="card-title font-20 mt-0">Reviewed Leads {{reviewedLeads}}</h1>
+                <p class="card-text"></p>
+            </div>
+        </a>
+    </div>
+
+</div> -->

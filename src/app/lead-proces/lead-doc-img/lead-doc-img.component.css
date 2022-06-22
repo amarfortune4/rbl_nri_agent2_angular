@@ -1,0 +1,30 @@
+.demo-area {
+  border-radius: 8px;
+  padding: 40px;
+  position: relative;
+}
+
+.detail {
+  width: 85%;
+  height: 200px;
+  position: absolute;
+  z-index: 999;
+}
+
+.content {
+  background-color: white;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: fixed;
+  width: 40%;
+  margin-right: 15px;
+}
+
+.demo-area img {
+  display: block;
+  margin: 0 auto;
+}
+
+.head-content{
+ margin:15px; 
+}

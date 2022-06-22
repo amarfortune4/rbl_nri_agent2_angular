@@ -1,0 +1,167 @@
+<div class="dlts-box">
+
+    <div class="dlts-box-item">
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Nomination Facility Opted</span>
+            </div>
+            <div class="col-8">
+                <span>{{isOpted_value|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Nominee Name</span>
+            </div>
+            <div class="col-8">
+                <span>{{nomineeTitle|titlecase}}. {{nomineeFirstName|titlecase}} {{nomineeMiddleName|titlecase}} {{nomineeLastName|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Address</span>
+            </div>
+            <div class="col-4">
+                <span>{{nomineeHouseNumber}}</span>
+            </div>
+            <div class="col-4">
+                <span>{{nomineeHouseOrBuildingName}}</span>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-8">
+                <span>{{nomineeRoadOrStreetName}}</span>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-8">
+                <span>{{nomineeLandkmark}}</span>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <span>{{nomineeState}}</span>
+            </div>
+            <div class="col-4">
+                <span>{{nomineeCity}}</span>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <span>{{nomineeCountry}}</span>
+            </div>
+            <div class="col-4">
+                <span>{{nomineePincode}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Relationship with Depositor, if any *</span>
+            </div>
+            <div class="col-8">
+                <span>{{relationship}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Nominee Date of Birth</span>
+            </div>
+            <div class="col-8">
+                <span>{{nomineeDateOfBirth}}</span>
+            </div>
+        </div>
+    </div>
+
+    <form [formGroup]="nominationForm">
+        <ng-container *ngIf="isDislplayCommentTextArea===true">
+            <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Your Comments"
+                formControlName="comments" #commentSection></textarea>
+
+                
+            <div *ngIf="comments.invalid && (comments.dirty || comments.touched)">
+                <label>This is commemnt Error</label>
+                <!--Comment Validation starts--------->
+            <label *ngIf="comments.invalid && (comments.dirty || comments.touched)">
+                <span *ngIf="comments.errors?.required" >Comment is required.</span>
+            </label>
+            </div>  
+            <!--Comment Validation ends--------->
+            </ng-container>
+    
+            <ng-container *ngIf="isDisplayAddComment===true">
+                <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="addComment()">
+                    Add Comments
+                </button>
+            </ng-container>
+    
+            <ng-container *ngIf="isDislplayCommentUpdateBtn===true">
+                <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="updateComment()">
+                    Update Comments
+                </button>
+            </ng-container>
+    
+            <div class="row">
+                <ng-container *ngIf="isDisplayEditDeleteCommentSection===true">
+                    <div class="col-md-12">
+                        <h2>Comments</h2>
+                    </div>
+        
+                    <div class="col-md-8">{{this.commentData}}</div>
+                    <div class="col-md-2"><i class="ion-edit" (click)="editComment()"></i></div>
+                    <div class="col-md-2"><i class="ion-trash-b" (click)="checkDeleteComment()"></i></div>
+        
+                </ng-container>
+            </div>
+              
+            <hr>
+            <div class="btns-arrange-dtls">
+                
+                <ng-container *ngIf="isDisplayAddApprove===true">
+                    <button type="button" class="btn btn-success w-md waves-effect waves-light" (click)="approveLead()">Approve this
+                        section</button>
+                </ng-container>
+    
+                
+                <ng-container *ngIf="isDisplayProceedNext===true">
+                    <button type="button" class="btn btn-primary w-md waves-effect waves-light"
+                        (click)="proceedNext()">Proceed
+                        to
+                        next section</button>
+                </ng-container>
+    
+            </div>
+
+            <ng-container *ngIf="isApproved===true">
+                <h3>{{this.approveMsg}}</h3>
+            </ng-container>
+    </form>
+</div>
+
+<div class="modal text-danger" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title">{{this.loginFailedErr}}</h4> -->
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+
+                <button type="button" class="btn btn-danger" style="margin:10px"
+                    (click)="deleteComment()">Delete</button>
+                <button type="button" class="btn btn-primary" style="margin:10px"
+                    (click)="onCloseHandled()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal text-danger" tabindex="-1" role="dialog" [ngStyle]="{'display':displayCommentErr}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Please add comment</h4>
+                <button type="button" class="close" aria-label="Close" (click)="closeModalComment()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+    </div>
+</div>

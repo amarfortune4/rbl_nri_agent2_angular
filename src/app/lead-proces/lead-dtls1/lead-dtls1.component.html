@@ -1,0 +1,252 @@
+<div class="dlts-box">
+
+    <div class="dlts-box-item">
+        <h2>Account Details</h2>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Type of Account</span>
+            </div>
+            <div class="col-8">
+                <span>{{account_type_name|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">No of Applicant</span>
+            </div>
+            <div class="col-8">
+                <span>NA</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Account Variant</span>
+            </div>
+            <div class="col-8">
+                <span>{{account_varient}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dlts-box-item">
+
+        <h2>Applicant Personal Details</h2>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Applicant Full Name</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.applicantFullName}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Aadhaar Number</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.aadhaarrNo}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Religion</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.religion_name}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Category</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.religion_category_name}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Are you a Politically Exposed Person or related to one</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.is_politically_exposed_name|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Date of Birth</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.dob}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Marital Status</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.maritalStatus|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Genders</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.gender|titlecase}}</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="dlts-box-item">
+
+        <h2>Additional details are required as Aadhaar KYC details are not matching</h2>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Applicant Maiden Name</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.applicantMaidenFullName|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Applicant Mother’s Name</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.applicantMothersFullName|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Applicant Father’s Name</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.applicantFatherOrSpouceFullName|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Nationality</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.countrie_name|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Date of becoming NRI</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.dateOfBecomingNri}}</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <form [formGroup]="personalDtlsForm" >
+        <ng-container *ngIf="isDislplayCommentTextArea===true">
+            <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Your Comments"
+                formControlName="comments" #commentSection></textarea>
+
+                <!-- <span *ngIf="comments.errors?.required" class="text-danger">Comment is required.</span> -->
+            <!--Comment Validation starts--------->
+            <label class="invalid-feedback" *ngIf="comments.invalid && (comments.dirty || comments.touched)">
+                <span *ngIf="comments.errors?.required" class="text-danger">Comment is required.</span>
+            </label>
+            <!--Comment Validation ends--------->
+        </ng-container>
+
+        <ng-container *ngIf="isDisplayAddComment===true">
+            <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="addComment()">
+                Add Comments
+            </button>
+        </ng-container>
+
+        <ng-container *ngIf="isDislplayCommentUpdateBtn===true">
+            <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="updateComment()">
+                Update Comments
+            </button>
+        </ng-container>
+
+        <div class="row">
+            <ng-container *ngIf="isDisplayEditDeleteCommentSection===true">
+                <div class="col-md-12">
+                    <h2>Comments</h2>
+                </div>
+
+                <div class="col-md-8">{{this.commentData}}</div>
+                <div class="col-md-2"><i class="ion-edit" (click)="editComment()"></i></div>
+                <div class="col-md-2"><i class="ion-trash-b" (click)="checkDeleteComment()"></i></div>
+
+            </ng-container>
+        </div>
+
+
+
+
+
+        <hr>
+        <div class="btns-arrange-dtls">
+
+            <ng-container *ngIf="isDisplayAddApprove===true">
+                <button type="button" class="btn btn-success w-md waves-effect waves-light"
+                    (click)="approveLead()">Approve this
+                    section</button>
+            </ng-container>
+
+
+            <ng-container *ngIf="isDisplayProceedNext===true">
+                <button type="button" class="btn btn-primary w-md waves-effect waves-light"
+                    (click)="proceedNext()">Proceed
+                    to
+                    next section</button>
+            </ng-container>
+
+        </div>
+
+        <ng-container *ngIf="isApproved===true">
+            <h3>{{this.approveMsg}}</h3>
+        </ng-container>
+
+    </form>
+
+</div>
+
+
+
+<div class="modal text-danger" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title">{{this.loginFailedErr}}</h4> -->
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+
+                <button type="button" class="btn btn-danger" style="margin:10px"
+                    (click)="deleteComment()">Delete</button>
+                <button type="button" class="btn btn-primary" style="margin:10px"
+                    (click)="onCloseHandled()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal text-danger" tabindex="-1" role="dialog" [ngStyle]="{'display':displayCommentErr}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Please add comment</h4>
+                <button type="button" class="close" aria-label="Close" (click)="closeModalComment()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+    </div>
+</div>

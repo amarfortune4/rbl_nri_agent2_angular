@@ -1,0 +1,213 @@
+<div class="row row-deck row-cards mt-3">
+    <div class="col-12">
+        <div class="card">
+
+            
+
+            
+                <div class="card-header">
+                    <h3 class="card-title">New Leads</h3>
+                </div>
+            
+
+            <ng-container *ngIf="this.roleID===3">
+                <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap datatable">
+                        <thead>
+                            <tr>
+                                <th>Lead Reference Number</th>
+                                <th>Customer Name</th>
+                                <th>Account Type</th>
+                                <th>Applied On</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let agentDtls of agentListDataArr;let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{agentDtls.customer_name}}</td>
+                                <td>{{agentDtls.account_type|titlecase}}</td>
+                                <td>{{agentDtls.created_on}}</td>
+                                <td>
+                                    <div class="btn-list flex-nowrap">
+                                        <a class="btn">
+                                            <span
+                                                (click)="acceptLead(agentDtls.lead_id,agentDtls.applicant_personal_id)"
+                                                class="text-primary anchorLink">Accept</span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <td>59716879</td>
+                                <td>Garrett Winters</td>
+                                <td>Individual</td>
+                                <td>2011/07/25</td>
+                                <td>
+                                    <div class="btn-list flex-nowrap">
+                                        <a href="#" class="btn">
+                                            Edit
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>84678918</td>
+                                <td>Ashton Cox</td>
+                                <td>Joint</td>
+                                <td>2009/01/12</td>
+                                <td>
+                                    <div class="btn-list flex-nowrap">
+                                        <a href="#" class="btn">
+                                            Edit
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </ng-container>
+
+
+            <ng-container *ngIf="this.roleID===2">
+                <ng-container *ngIf="superAgentListDataArr.length>0">
+                    <div class="table-responsive">
+                        <table class="table card-table table-vcenter text-nowrap datatable">
+                            <thead>
+                                <tr>
+                                    <th>Sr.No</th>
+                                    <th>Lead</th>
+                                    <th>Account Type</th>
+                                    <!-- <th>Applied On</th> -->
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let superAgentDtls of superAgentListDataArr;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{superAgentDtls.first_name|titlecase}} {{superAgentDtls.last_name|titlecase}}
+                                    </td>
+                                    <ng-container *ngIf="superAgentDtls.account_type===1">
+                                        <td>Individual</td>
+                                    </ng-container>
+                                    <ng-container *ngIf="superAgentDtls.account_type===2">
+                                        <td>Joint</td>
+                                    </ng-container>
+                                    <ng-container *ngIf="superAgentDtls.account_type===3">
+                                        <td>Minnor</td>
+                                    </ng-container>
+                                    <!-- <td>{{superAgentDtls.created_on}}</td> -->
+                                    <td>
+                                        <div class="btn-list flex-nowrap">
+                                            <a class="btn">
+                                                <!-- <span (click)="acceptLead(superAgentDtls.lead_id,superAgentDtls.applicant_personal_id)"
+                                                    class="text-primary anchorLink">Assign Lead</span> -->
+                                                <span
+                                                    (click)="openAssignLeadsOpenModal(superAgentDtls?.lead_id,superAgentDtls.first_name,superAgentDtls.last_name)"
+                                                    class="text-primary anchorLink">Assign Lead</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="superAgentListDataArr.length<1">
+                    <div style="padding: 5px 15px">There are no new leads</div>
+                </ng-container>
+
+
+            </ng-container>
+
+            <!-- <div class="card-footer d-flex align-items-center">
+                <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span> entries</p>
+                <ul class="pagination m-0 ms-auto">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <polyline points="15 6 9 12 15 18" />
+                            </svg>
+                            prev
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            next
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <polyline points="9 6 15 12 9 18" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="modal text-black" tabindex="-1" role="dialog" [ngStyle]="{'display':displayAssignLeads}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title">Lead is assigned to Agent</h4> -->
+                <span>Assign Leads</span>
+                <button type="button" class="close" aria-label="Close" (click)="closeAssignLeadsModal()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div style="margin:10px;">
+                    Lead Name:{{this.currentLeadName}}
+                </div>
+                <div>
+                    <select class="form-select" (change)="getAgentID($event)">
+                        <option value="" disabled selected>Select Agent</option>
+                        <option *ngFor="let agentList of allAgentList" [value]="agentList?.agent_id">{{agentList?.name}}
+                        </option>
+                    </select>
+                    <button type="button" class="btn btn-primary" style="margin:10px"
+                        (click)="superAgentAssignLeads()">Assign Leads</button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal text-success" tabindex="-1" role="dialog" [ngStyle]="{'display':displayAssignLeadSuccess}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title">Lead is assigned to Agent</h4> -->
+
+                <button type="button" class="close" aria-label="Close" (click)="closeSuccessLeadAssignLeadModal()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div style="margin:10px;">
+                    <span style="font-weight:700;">Lead is assigned</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

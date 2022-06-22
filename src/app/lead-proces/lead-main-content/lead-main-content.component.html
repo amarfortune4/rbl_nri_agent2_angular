@@ -1,0 +1,197 @@
+<div class="accordion lead-main-accordion" id="accordion-example">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#personalDtls"
+                aria-expanded="false">
+                Personal Details
+            </button>
+        </h2>
+        <div id="personalDtls" class="accordion-collapse collapse show" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <app-lead-dtls1  (showFatcaDivOut)="showFatcaDiv()"></app-lead-dtls1>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="attrTargetFatca"
+                aria-expanded="true" #fatcaAccrdBtn>
+                Fatca
+            </button>
+        </h2>
+        <div id="fatca" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <app-lead-dtls2 (showKycDivOut)="showKycDiv()"></app-lead-dtls2>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="attrTargetKyc" aria-expanded="false" #kycAccrdBtn>
+                Kyc Details
+            </button>
+        </h2>
+        <div id="kycDetails" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <app-lead-dtls3 (showContactDivOut)="showContactDiv()"></app-lead-dtls3>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="attrTargetContact"
+                aria-expanded="false" #ContactAccrdBtn>
+                Contact
+            </button>
+        </h2>
+        <div id="Contact" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <app-lead-dtls4 (showAddressDivOut)="showAddressDiv()"></app-lead-dtls4>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="attrTargetAddress" aria-expanded="false" #AddressAccrdBtn>
+                Address Details
+            </button>
+        </h2>
+        <div id="addressDetails" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <app-lead-dtls5 (showCustomerProfilerDivOut)="showCustomerProfilerDiv()"></app-lead-dtls5>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="attrTargetCustomerProfiler" aria-expanded="false" #CustomerProfilerAccrdBtn>
+                Customer Profiler
+            </button>
+        </h2>
+        <div id="customerProfiler" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <app-lead-dtls6 (showInternetBankingDivOut)="showInternetBankingDiv()"></app-lead-dtls6>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="attrTargetInternetBanking" aria-expanded="false" #InternetBankingAccrdBtn>
+                Internet Banking
+            </button>
+        </h2>
+        <div id="internetBanking" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <app-lead-dtls7 (showNominationDivOut)="showNominationDiv()"></app-lead-dtls7>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#relatives" aria-expanded="false" >
+                Relatives
+            </button>
+        </h2>
+        <div id="relatives" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <!-- <app-lead-dtls7 ></app-lead-dtls7> -->
+                <app-lead-dtls-customer-relatives></app-lead-dtls-customer-relatives>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="attrTargetNomination" aria-expanded="false" #NominationAccrdBtn>
+                Nominations
+            </button>
+        </h2>
+        <div id="Nominations" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+            <div class="accordion-body pt-0">
+                <app-lead-dtls8></app-lead-dtls8>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="card-body">
+
+
+    <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">
+        <li class="nav-item waves-effect waves-light">
+            <a class="nav-link active" data-toggle="tab" href="#personalDtls" role="tab">Personal Details</a>
+        </li>
+        <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#fatca" role="tab">Fatca</a>
+        </li>
+        <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#kycDtls" role="tab">Kyc Details</a>
+        </li>
+        <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#contactDlts" role="tab">Contact</a>
+        </li>
+        <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#addressDtls" role="tab">Address Details</a>
+        </li>
+        <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#customerProfile" role="tab">Customer Profiler</a>
+        </li>
+        <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#netbanking" role="tab">Internet Banking</a>
+        </li>
+        <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#nomination" role="tab">Nominations</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active p-3" id="personalDtls" role="tabpanel">
+            <app-lead-dtls1></app-lead-dtls1>
+        </div>
+        <div class="tab-pane p-3" id="fatca" role="tabpanel">
+            <app-lead-dtls2></app-lead-dtls2>
+
+        </div>
+        <div class="tab-pane p-3" id="kycDtls" role="tabpanel">
+            <app-lead-dtls3></app-lead-dtls3>
+        </div>
+        <div class="tab-pane p-3" id="contactDlts" role="tabpanel">
+            <h3>Contact Dtls</h3>
+            <app-lead-dtls4></app-lead-dtls4>
+
+        </div>
+
+        <div class="tab-pane p-3" id="addressDtls" role="tabpanel">
+            <h3>Address Dtls</h3>
+            <app-lead-dtls5></app-lead-dtls5>
+
+        </div>
+
+
+        <div class="tab-pane p-3" id="customerProfile" role="tabpanel">
+            <h3>Customer Profiler</h3>
+            <app-lead-dtls6></app-lead-dtls6>
+        </div>
+
+
+        <div class="tab-pane p-3" id="netbanking" role="tabpanel">
+            <h3>Netbanking</h3>
+            <app-lead-dtls7></app-lead-dtls7>
+
+        </div>
+
+
+        <div class="tab-pane p-3" id="nomination" role="tabpanel">
+            <h3>Nominations</h3>
+            <app-lead-dtls8></app-lead-dtls8>
+
+        </div>
+
+    </div>
+
+</div> -->

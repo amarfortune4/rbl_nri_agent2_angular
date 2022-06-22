@@ -1,0 +1,113 @@
+<div class="dlts-box">
+
+    <div class="dlts-box-item">
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Relative Full Name</span>
+            </div>
+            <div class="col-8">
+                <span>{{declarant_title|titlecase}}. {{declarant_first_name|titlecase}} {{declarant_middle_name|titlecase}} {{declarant_last_name|titlecase}}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Address</span>
+            </div>
+            <div class="col-4">
+                <span>{{this.declarant_house_number}}</span>
+            </div>
+            <div class="col-4">
+                <span>{{this.declarant_house_and_building_name}}</span>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-8">
+                <span>{{this.declarant_road_or_street_name}}</span>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-8">
+                <span>{{this.declarant_landmark}}</span>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <span>{{this.declarant_state}}</span>
+            </div>
+            <div class="col-4">
+                <span>{{this.declarant_city}}</span>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <span>{{this.countrie_name}}</span>
+            </div>
+            <div class="col-4">
+                <span>{{this.declarant_pincode}}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Relationship with Applicant</span>
+            </div>
+            <div class="col-8">
+                <span>{{declarant_title|titlecase}}. {{declarant_first_name|titlecase}} {{declarant_middle_name|titlecase}} {{declarant_last_name|titlecase}}</span>
+            </div>
+        </div>
+        
+       
+    </div>
+
+    <!-- <form [formGroup]="nominationForm">
+        <ng-container *ngIf="isDislplayCommentTextArea===true">
+            <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Your Comments"
+                formControlName="comments" #commentSection></textarea>
+            </ng-container>
+    
+            <ng-container *ngIf="isDisplayAddComment===true">
+                <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="addComment()">
+                    Add Comments
+                </button>
+            </ng-container>
+    
+            <ng-container *ngIf="isDislplayCommentUpdateBtn===true">
+                <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="updateComment()">
+                    Update Comments
+                </button>
+            </ng-container>
+    
+            <div class="row">
+                <ng-container *ngIf="isDisplayEditDeleteCommentSection===true">
+                    <div class="col-md-12">
+                        <h2>Comments</h2>
+                    </div>
+        
+                    <div class="col-md-8">{{this.commentData}}</div>
+                    <div class="col-md-2"><i class="ion-edit" (click)="editComment()"></i></div>
+                    <div class="col-md-2"><i class="ion-trash-b" (click)="checkDeleteComment()"></i></div>
+        
+                </ng-container>
+            </div>
+              
+            <hr>
+            <div class="btns-arrange-dtls">
+                
+                <ng-container *ngIf="isDisplayAddApprove===true">
+                    <button type="button" class="btn btn-success w-md waves-effect waves-light" (click)="approveLead()">Approve this
+                        section</button>
+                </ng-container>
+    
+                
+                <ng-container *ngIf="isDisplayProceedNext===true">
+                    <button type="button" class="btn btn-primary w-md waves-effect waves-light"
+                        (click)="proceedNext()">Proceed
+                        to
+                        next section</button>
+                </ng-container> 
+    
+            </div> 
+
+            <ng-container *ngIf="isApproved===true">
+                <h3>{{this.approveMsg}}</h3>
+            </ng-container>
+    </form>-->
+</div>
+

@@ -1,0 +1,233 @@
+<div class="dlts-box">
+    <div class="dlts-box-item">
+        <h2>Indentity Document</h2>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Holding other than Indian Passport</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.otherPassport|titlecase}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Passport Number</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.passportNo}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Issue Date</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.issueDate}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Expiry Date</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.expiryDate}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Issuing Athuority</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.issuingAuth}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Place of Issue</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.placeOfIssue}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dlts-box-item">
+        <h2>Visa type / Residence Permit </h2>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Type of Visa </span>
+            </div>
+            <div class="col-8">
+                <span>{{this.typeOfVisa}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Resident Permit</span>
+            </div>
+            <div class="col-8">
+                <span>No</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Visa/Residence Permit Expiry Date</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.visaresipermitExpiryDate}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Pan Card No.</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.panNo}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Form 60</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.form60}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dlts-box-item">
+        <h2>Temporary Visa Declaration</h2>
+        <hr>
+        <label class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <span class="form-check-label">
+                I/We have submitted the bank my/our temporary visas work/Residence dated expiring on
+            </span>
+        </label>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Document Issue Date</span>
+            </div>
+            <div class="col-8">
+                <span>{{docIssueDate}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Document Expiry Date</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.docExpiryDate}}</span>
+            </div>
+        </div>
+        <label class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <span class="form-check-label">
+                I/We hereby agree to furnish the bank with copies of my/our regular visa/s immediately on issuance and
+                confirm that I/We donot have any objections if’ the bank freezes transactions in the account or closes
+                the account if I/We donot submit copies of regular visas within 3 months form the date of expiry of
+                Visa.
+            </span>
+        </label>
+        <div class="row">
+            <div class="col-4">
+                <span class="lbl-agent">Temporary Visa Declaration</span>
+            </div>
+            <div class="col-8">
+                <span>{{this.temporaryVisaDec|titlecase}}</span>
+            </div>
+        </div>
+    </div>
+
+    <form [formGroup]="kycDtlsForm">
+        <ng-container *ngIf="isDislplayCommentTextArea===true">
+            <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Your Comments"
+                formControlName="comments" #commentSection></textarea>
+            </ng-container>
+    
+            <ng-container *ngIf="isDisplayAddComment===true">
+                <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="addComment()">
+                    Add Comments
+                </button>
+            </ng-container>
+    
+            <ng-container *ngIf="isDislplayCommentUpdateBtn===true">
+                <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="updateComment()">
+                    Update Comments
+                </button>
+            </ng-container>
+    
+            <div class="row">
+                <ng-container *ngIf="isDisplayEditDeleteCommentSection===true">
+                    <div class="col-md-12">
+                        <h2>Comments</h2>
+                    </div>
+        
+                    <div class="col-md-8">{{this.commentData}}</div>
+                    <div class="col-md-2"><i class="ion-edit" (click)="editComment()"></i></div>
+                    <div class="col-md-2"><i class="ion-trash-b" (click)="checkDeleteComment()"></i></div>
+        
+                </ng-container>
+            </div>
+            
+    
+    
+            
+    
+            <hr>
+            <div class="btns-arrange-dtls">
+                
+                <ng-container *ngIf="isDisplayAddApprove===true">
+                    <button type="button" class="btn btn-success w-md waves-effect waves-light" (click)="approveLead()">Approve this
+                        section</button>
+                </ng-container>
+    
+                
+                <ng-container *ngIf="isDisplayProceedNext===true">
+                    <button type="button" class="btn btn-primary w-md waves-effect waves-light"
+                        (click)="proceedNext()">Proceed
+                        to
+                        next section</button>
+                </ng-container>
+    
+            </div>
+
+            <ng-container *ngIf="isApproved===true">
+                <h3>{{this.approveMsg}}</h3>
+            </ng-container>
+    </form>
+</div>
+
+<div class="modal text-danger" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title">{{this.loginFailedErr}}</h4> -->
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+
+                <button type="button" class="btn btn-danger" style="margin:10px"
+                    (click)="deleteComment()">Delete</button>
+                <button type="button" class="btn btn-primary" style="margin:10px"
+                    (click)="onCloseHandled()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal text-danger" tabindex="-1" role="dialog" [ngStyle]="{'display':displayCommentErr}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Please add comment</h4>
+                <button type="button" class="close" aria-label="Close" (click)="closeModalComment()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+    </div>
+</div>

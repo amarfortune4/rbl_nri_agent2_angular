@@ -1,0 +1,265 @@
+<div class="dlts-box">
+
+    <div class="dlts-box-item">
+        <div class="row">
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="checkbox" [checked]="this.isInternetBankingSelected" disabled>
+                    <span class="form-check-label">
+                        Internet Banking
+                    </span>
+                </label>
+            </div>
+            <div class="col-8">
+                <label class="form-check">
+                    <input class="form-check-input" type="checkbox" [checked]="isMobileBankingSelected" disabled>
+                    <span class="form-check-label">
+                        Mobile Banking
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="dlts-box-item">
+        <h2>Debit Card</h2>
+        <hr>
+        <div class="row">
+            <h4>Please select your Debit Card</h4>
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="selectDebitCard" disabled>
+                    <span class="form-check-label">
+                        International Debit Card
+                    </span>
+                </label>
+            </div>
+            <div class="col-8">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="selectDebitCard" disabled>
+                    <span class="form-check-label">
+                        Domestic Debit Card
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Card Variant</h4>
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="cardVariant" disabled>
+                    <span class="form-check-label">
+                        Classic / Titanium First
+                    </span>
+                </label>
+            </div>
+            <div class="col-8">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="cardVariant" disabled>
+                    <span class="form-check-label">
+                        Platinum First
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="dlts-box-item">
+        <h2>Request for Cheque Book</h2>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="chequebook" [value]="this.debitCardType" disabled>
+                    <span class="form-check-label">
+                        Yes
+                    </span>
+                </label>
+            </div>
+            <div class="col-8">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="chequebook" [value]="this.debitCardType" disabled>
+                    <span class="form-check-label">
+                        No
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="dlts-box-item">
+        <h2>Alert Registration</h2>
+        <hr>
+        <div class="row">
+            <h4>Daily Balance Alerts</h4>
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="dataBalanceAlerts" [value]="this.debitCardType" disabled>
+                    <span class="form-check-label">
+                        Yes
+                    </span>
+                </label>
+            </div>
+            <div class="col-8">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="dataBalanceAlerts" [value]="this.debitCardType" disabled>
+                    <span class="form-check-label">
+                        No
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Alerts Mode</h4>
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="checkbox" disabled>
+                    <span class="form-check-label">
+                        SMS
+                    </span>
+                </label>
+            </div>
+            <div class="col-8">
+                <label class="form-check">
+                    <input class="form-check-input" type="checkbox" disabled>
+                    <span class="form-check-label">
+                        Email
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Debit / Credit Alerts</h4>
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="debitCardAlerts" [value]="this.debitCardType" disabled>
+                    <span class="form-check-label">
+                        Yes
+                    </span>
+                </label>
+            </div>
+            <div class="col-8">
+                <label class="form-check">
+                    <input class="form-check-input" type="radio" name="debitCardAlerts" [value]="this.debitCardType" disabled>
+                    <span class="form-check-label">
+                        No
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Alerts Mode</h4>
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="checkbox" [value]="this.debitCardType" disabled>
+                    <span class="form-check-label">
+                        SMS
+                    </span>
+                </label>
+            </div>
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="checkbox" [value]="this.debitCardType" disabled> 
+                    <span class="form-check-label">
+                        Email
+                    </span>
+                </label>
+            </div>
+            <div class="col-4">
+                <label class="form-check">
+                    <input class="form-check-input" type="checkbox" [value]="this.debitCardType" disabled>
+                    <span class="form-check-label">
+                        WhatsApp
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <form [formGroup]="internetBankingForm">
+        <ng-container *ngIf="isDislplayCommentTextArea===true">
+            <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Your Comments"
+                formControlName="comments" #commentSection></textarea>
+            </ng-container>
+    
+            <ng-container *ngIf="isDisplayAddComment===true">
+                <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="addComment()">
+                    Add Comments
+                </button>
+            </ng-container>
+    
+            <ng-container *ngIf="isDislplayCommentUpdateBtn===true">
+                <button type="button" class="btn btn-danger w-md waves-effect waves-light mt-2" (click)="updateComment()">
+                    Update Comments
+                </button>
+            </ng-container>
+    
+            <div class="row">
+                <ng-container *ngIf="isDisplayEditDeleteCommentSection===true">
+                    <div class="col-md-12">
+                        <h2>Comments</h2>
+                    </div>
+        
+                    <div class="col-md-8">{{this.commentData}}</div>
+                    <div class="col-md-2"><i class="ion-edit" (click)="editComment()"></i></div>
+                    <div class="col-md-2"><i class="ion-trash-b" (click)="checkDeleteComment()"></i></div>
+        
+                </ng-container>
+            </div>
+              
+            <hr>
+            <div class="btns-arrange-dtls">
+                
+                <ng-container *ngIf="isDisplayAddApprove===true">
+                    <button type="button" class="btn btn-success w-md waves-effect waves-light" (click)="approveLead()">Approve this
+                        section</button>
+                </ng-container>
+    
+                
+                <ng-container *ngIf="isDisplayProceedNext===true">
+                    <button type="button" class="btn btn-primary w-md waves-effect waves-light"
+                        (click)="proceedNext()">Proceed
+                        to
+                        next section</button>
+                </ng-container>
+    
+            </div>
+
+            <ng-container *ngIf="isApproved===true">
+                <h3>{{this.approveMsg}}</h3>
+            </ng-container>
+    </form>
+</div>
+
+<div class="modal text-danger" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title">{{this.loginFailedErr}}</h4> -->
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+
+                <button type="button" class="btn btn-danger" style="margin:10px"
+                    (click)="deleteComment()">Delete</button>
+                <button type="button" class="btn btn-primary" style="margin:10px"
+                    (click)="onCloseHandled()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal text-danger" tabindex="-1" role="dialog" [ngStyle]="{'display':displayCommentErr}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Please add comment</h4>
+                <button type="button" class="close" aria-label="Close" (click)="closeModalComment()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+    </div>
+</div>
